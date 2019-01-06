@@ -1,12 +1,10 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using Unity.Profiling;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyManager : MonoBehaviour
 {
     // Start is called before the first frame update
-    private List<GameObject> _enemies;
+    public List<GameObject> enemies;
     public GameObject spawner;
     public GameObject enemyPrefab;
     public float enemySpawnInterval;
@@ -16,7 +14,7 @@ public class EnemyManager : MonoBehaviour
 
     private void Start()
     {
-        _enemies = new List<GameObject>();
+        enemies = new List<GameObject>();
         _spawnTimer = gameObject.AddComponent<GameTimer>();
         _spawnTimer.Start();
     }
@@ -25,7 +23,7 @@ public class EnemyManager : MonoBehaviour
     private void Update()
     {
         if (_spawnTimer.HasElapsed(enemySpawnInterval)) SpawnEnemy();
-        foreach (var enemy in _enemies)
+        foreach (var enemy in enemies)
         {
             enemy.transform.Translate(enemyspeed * Vector3.down);
         }
@@ -35,9 +33,15 @@ public class EnemyManager : MonoBehaviour
     {
         var position = spawner.transform.position;
         var spawnLocation = new Vector3(Random.Range(-2, 2),
-            position.y, position.y);
+            position.y, position.z);
         var newEnemy = Instantiate(enemyPrefab, transform);
         newEnemy.transform.position = spawnLocation;
-        _enemies.Insert(_enemies.Count, newEnemy);
+        enemies.Insert(enemies.Count, newEnemy);
+    }
+
+    public void DestroyEnemy(GameObject enemy)
+    {
+        enemies.Remove(enemy);
+        Destroy(enemy);
     }
 }
