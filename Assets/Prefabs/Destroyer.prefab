@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 543369057962016169}
   - component: {fileID: 543369057962016175}
+  - component: {fileID: 1330087955}
   m_Layer: 0
   m_Name: Destroyer
   m_TagString: Untagged
@@ -24,7 +25,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 543369057962016168}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -8, z: 0}
   m_LocalScale: {x: 10, y: 1, z: 1}
   m_Children: []
@@ -44,3 +45,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyManagerObject: {fileID: 0}
+--- !u!68 &1330087955
+EdgeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 543369057962016168}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 6200000, guid: aff13dddef6587146b30f6e7b68bff5d, type: 2}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_EdgeRadius: 0
+  m_Points:
+  - {x: -0.5, y: 0}
+  - {x: 0.5, y: 0}

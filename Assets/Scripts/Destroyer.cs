@@ -10,9 +10,8 @@ public class Destroyer : MonoBehaviour
         _enemyManager = enemyManagerObject.GetComponent<EnemyManager>();
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("blah");
         var otherGameObject = other.gameObject;
         if (otherGameObject.CompareTag("Enemy"))
         {
